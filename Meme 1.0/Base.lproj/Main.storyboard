@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Meme_1_0" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,8 +18,99 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YtE-dz-z97">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="BCt-Ft-aL2"/>
+                                    <constraint firstAttribute="width" constant="240" id="T1C-UU-One"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="BCt-Ft-aL2"/>
+                                        <exclude reference="T1C-UU-One"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="BCt-Ft-aL2"/>
+                                        <include reference="T1C-UU-One"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bmd-bA-6Qe">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="400" id="O6F-b7-EbB"/>
+                                    <constraint firstAttribute="height" constant="44" id="YzO-8a-dgO"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Pick" width="231" id="2yO-Ii-qdd">
+                                        <connections>
+                                            <action selector="pickFromAlbum:" destination="BYZ-38-t0r" id="XZa-43-mAy"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="camera" id="Ik6-7I-Q7e">
+                                        <connections>
+                                            <action selector="pickFromCamera:" destination="BYZ-38-t0r" id="TEY-a4-5jl"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="O6F-b7-EbB"/>
+                                        <exclude reference="YzO-8a-dgO"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="O6F-b7-EbB"/>
+                                        <include reference="YzO-8a-dgO"/>
+                                    </mask>
+                                </variation>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YtE-dz-z97" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="2xv-o3-iLE">
+                                <variation key="widthClass=compact" constant="6"/>
+                            </constraint>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="bmd-bA-6Qe" secondAttribute="bottom" id="Qad-Ku-Inq"/>
+                            <constraint firstItem="bmd-bA-6Qe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="TLe-CM-Mvf"/>
+                            <constraint firstItem="YtE-dz-z97" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UQV-3a-Pb3">
+                                <variation key="widthClass=compact" constant="6"/>
+                            </constraint>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="YtE-dz-z97"/>
+                                <exclude reference="bmd-bA-6Qe"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Qad-Ku-Inq"/>
+                                <exclude reference="TLe-CM-Mvf"/>
+                                <exclude reference="2xv-o3-iLE"/>
+                                <exclude reference="UQV-3a-Pb3"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="YtE-dz-z97"/>
+                                <include reference="bmd-bA-6Qe"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Qad-Ku-Inq"/>
+                                <include reference="TLe-CM-Mvf"/>
+                                <include reference="2xv-o3-iLE"/>
+                                <include reference="UQV-3a-Pb3"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="camera" destination="Ik6-7I-Q7e" id="pvq-Ng-x6M"/>
+                        <outlet property="imageView" destination="YtE-dz-z97" id="LN9-Z6-Z3r"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
