@@ -85,10 +85,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     //clear the default text when a user taps inside a textfield
     func textFieldDidBeginEditing(textField: UITextField) {
-        if topTextField.text == "TOP" {
+        if (topTextField.text == "TOP" && textField == topTextField){
             topTextField.text = ""
         }
-        else if btmTextField.text == "BOTTOM" {
+        else if (btmTextField.text == "BOTTOM" && textField == btmTextField) {
             btmTextField.text = ""
         }
     }
