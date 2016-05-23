@@ -85,6 +85,21 @@
                                     <rect key="frame" x="86" y="464" width="240" height="30"/>
                                 </variation>
                             </textField>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uCV-gn-ADw">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <items>
+                                    <navigationItem id="prs-bj-SLA">
+                                        <barButtonItem key="leftBarButtonItem" enabled="NO" systemItem="action" id="6si-7A-dqU">
+                                            <connections>
+                                                <action selector="shareMeme:" destination="BYZ-38-t0r" id="ozI-J0-Uk3"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="44"/>
+                                </variation>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -103,6 +118,7 @@
                                 <exclude reference="bmd-bA-6Qe"/>
                                 <exclude reference="nbJ-bl-uF6"/>
                                 <exclude reference="yR6-Lh-X0r"/>
+                                <exclude reference="uCV-gn-ADw"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="Qad-Ku-Inq"/>
@@ -117,6 +133,7 @@
                                 <include reference="bmd-bA-6Qe"/>
                                 <include reference="nbJ-bl-uF6"/>
                                 <include reference="yR6-Lh-X0r"/>
+                                <include reference="uCV-gn-ADw"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="Qad-Ku-Inq"/>
@@ -131,6 +148,9 @@
                         <outlet property="btmTextField" destination="yR6-Lh-X0r" id="aTp-mS-1s4"/>
                         <outlet property="camera" destination="Ik6-7I-Q7e" id="pvq-Ng-x6M"/>
                         <outlet property="imageView" destination="YtE-dz-z97" id="LN9-Z6-Z3r"/>
+                        <outlet property="navBar" destination="uCV-gn-ADw" id="TOy-e9-E3N"/>
+                        <outlet property="shareButton" destination="6si-7A-dqU" id="y4E-If-Rxl"/>
+                        <outlet property="toolBar" destination="bmd-bA-6Qe" id="e6c-IC-XhF"/>
                         <outlet property="topTextField" destination="nbJ-bl-uF6" id="jU6-a4-YFR"/>
                     </connections>
                 </viewController>

@@ -14,6 +14,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var camera: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var btmTextField: UITextField!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
+    var memedImage : UIImage!
+    
+    @IBOutlet weak var navBar: UINavigationBar!
+    @IBOutlet weak var toolBar: UIToolbar!
     
     //setting font style and color
     let memeTextAttributes = [
@@ -23,11 +28,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NSStrokeWidthAttributeName : 3.0
     ]
     
-    
+    //initializing a Meme object
+    struct Meme {
+        var topText : String?
+        var originalImage : UIImage?
+        var btmText : String?
+        var memedImage : UIImage!
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         topTextField.text = "TOP"
         btmTextField.text = "BOTTOM"
         topTextField.textAlignment = .Center
@@ -44,6 +54,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewWillAppear(animated)
         subscribeToKeyboardNotifications()
         subscribeToKeyboardHideNotifications()
+        if imageView.image != nil {
+            shareButton.enabled = true
+        }
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -131,6 +144,41 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func keyboardWillHide(notification : NSNotification) {
         self.view.frame.origin.y = 0
+    }
+    
+    func save() {
+        //create the meme
+        let meme = Meme(topText: topTextField.text!, originalImage: imageView.image, btmText: btmTextField.text!,  memedImage: memedImage)
+    }
+    
+    //create an UIImage that combines the Image View and the Textfields
+    func generateMemedImage() -> UIImage {
+        //hide toolbar and navbar
+        navBar.hidden = true
+        toolBar.hidden = true
+        //render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        let memedImage :UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        //show toolbar and navbar
+        navBar.hidden = false
+        toolBar.hidden = false
+        
+        return memedImage
+    }
+    
+    //write the "share" action method
+    @IBAction func shareMeme(sender: AnyObject) {
+        self.memedImage = generateMemedImage()
+        let controller = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
+        presentViewController(controller, animated: true, completion: nil)
+        controller.completionWithItemsHandler = { activity, complete, items, error in
+            if complete {
+                self.save()
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+        }
     }
 }
 
