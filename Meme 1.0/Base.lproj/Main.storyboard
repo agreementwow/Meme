@@ -45,7 +45,7 @@
                                     <constraint firstAttribute="height" constant="44" id="YzO-8a-dgO"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem title="Pick" width="231" id="2yO-Ii-qdd">
+                                    <barButtonItem title="Album" width="231" id="2yO-Ii-qdd">
                                         <connections>
                                             <action selector="pickFromAlbum:" destination="BYZ-38-t0r" id="XZa-43-mAy"/>
                                         </connections>
@@ -122,6 +122,11 @@
                                         <barButtonItem key="leftBarButtonItem" enabled="NO" systemItem="action" id="6si-7A-dqU">
                                             <connections>
                                                 <action selector="shareMeme:" destination="BYZ-38-t0r" id="ozI-J0-Uk3"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="E0v-1p-Hf5">
+                                            <connections>
+                                                <action selector="undoChanges:" destination="BYZ-38-t0r" id="097-ZO-voi"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>

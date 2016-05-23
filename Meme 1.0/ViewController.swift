@@ -180,5 +180,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             }
         }
     }
+    
+    //undo all the changes when "cancel" is clicked
+    @IBAction func undoChanges(sender: AnyObject) {
+        topTextField.text = "TOP"
+        btmTextField.text = "BOTTOM"
+        imageView.image = nil
+    }
 }
 
